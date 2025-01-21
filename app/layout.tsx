@@ -18,7 +18,7 @@ const nunito = Nunito({
 });
 
 export const metadata = {
-  title: 'Matterait',
+  title: 'Matterait / Traits of Matter',
   description: 'Explore the traits of matter with advanced tools and data.',
   keywords: ['materials', 'physics', 'data analysis'],
   icons: {

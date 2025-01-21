@@ -3,10 +3,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+import SearchBar from "@/components/SearchBar";
+
 
 export default function Home() {
   return (
-    <section className="bg-gray-50 py-20">
+    <>
+    <section className="py-20">
       <div className="text-center px-6">
         <motion.h1
           className="font-main text-5xl md:text-6xl text-gray-800 mb-4"
@@ -18,5 +21,12 @@ export default function Home() {
         </motion.h1>
       </div>
     </section>
+    <SearchBar />
+    <section className="py-20">
+      <div className="text-center px-6">
+
+      </div>
+    </section>
+    </>
   );
 }
