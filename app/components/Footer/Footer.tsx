@@ -41,7 +41,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div className="text-gray-500 font-secondary font-bold mt-4">
+        <div className="text-gray-500 font-secondary mt-4">
           &copy; {new Date().getFullYear()} Matterait. All rights reserved.
         </div>
       </div>
