@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 
 export default function Navbar() {
@@ -12,11 +13,19 @@ export default function Navbar() {
   };
 
   return (
-    <header className="border-b-4 border-gray-300">
+    <header className="">
       <nav className="container mx-auto px-4 py-3 flex items-center justify-between">
 
         <div className="text-2xl font-main font-bold">
-          <Link href="/" onClick={() => setIsOpen(false)}>Matterait</Link>
+          <Link href="/" onClick={() => setIsOpen(false)}>
+            <Image
+              src="/matterait.svg"
+              alt="Matterait"
+              width={40}
+              height={40}
+              priority
+            />
+          </Link>
         </div>
 
         <ul className="text-gray-600 font-secondary font-bold hidden md:flex space-x-6">
@@ -65,14 +74,14 @@ export default function Navbar() {
       </nav>
 
       {isOpen && (
-        <ul className="md:hidden text-gray-600 font-secondary font-bold border-b-1 border-gray-300 space-y-2 text-center px-4 py-3">
+        <ul className="md:hidden text-gray-600 font-secondary font-bold border-b-4 border-gray-300 space-y-2 text-center px-4 py-3">
           <li>
-            <Link href="/" className="block hover:bg-emerald-600 hover:text-white rounded-full py-2" onClick={() => setIsOpen(false)}>
+            <Link href="/" className="block hover:bg-emerald-700 hover:text-white rounded-full py-2" onClick={() => setIsOpen(false)}>
               Home
             </Link>
           </li>
           <li>
-            <Link href="/about" className="block hover:bg-emerald-600 hover:text-white rounded-full py-2" onClick={() => setIsOpen(false)}>
+            <Link href="/about" className="block hover:bg-emerald-700 hover:text-white rounded-full py-2" onClick={() => setIsOpen(false)}>
               About
             </Link>
           </li>
