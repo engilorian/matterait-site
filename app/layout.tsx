@@ -1,5 +1,7 @@
+import { Playfair_Display, Nunito } from 'next/font/google';
+
+import Providers from '@/config/providers';
 import MainLayout from '@/components/Layout';
-import { Playfair_Display, Nunito } from '@next/font/google';
 
 import '@/style/globals.css';
 import '@/style/components.css';
@@ -49,13 +51,13 @@ export const metadata = {
   },
 };
 
-export const viewport = 'width=device-width, initial-scale=1.0';
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${playfair.variable} ${nunito.variable}`}>
       <body>
-        <MainLayout>{children}</MainLayout>
+        <Providers>
+          <MainLayout>{children}</MainLayout>
+        </Providers>
       </body>
     </html>
   );
