@@ -30,12 +30,12 @@ export default function Navbar() {
 
         <ul className="text-gray-600 font-secondary font-bold hidden md:flex space-x-6">
           <li>
-            <Link href="/" className="hover:bg-emerald-700 hover:text-white rounded-full py-2 px-4">
+            <Link href="/" className="hover:bg-gray-100 rounded-full py-2 px-4">
               Home
             </Link>
           </li>
           <li>
-            <Link href="/about" className="hover:bg-emerald-700 hover:text-white rounded-full py-2 px-4">
+            <Link href="/about" className="hover:bg-gray-100 rounded-full py-2 px-4">
               About
             </Link>
           </li>
