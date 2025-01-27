@@ -2,24 +2,31 @@ import { SpinValue } from "@/config/types/atomic/fundamental";
 
 
 export enum SubatomicParticleType {
-    HADRON = "hadron",
-    MESON = "meson",
-    BARYON = "baryon",
+  HADRON = "hadron",
+  MESON = "meson",
+  BARYON = "baryon",
+}
+
+export interface SubatomicComposition {
+  fundamental_particle_id: number;
+  name: string;
+  symbol: string;
+  quantity: number;
 }
 
 export interface SubatomicParticle {
   id: number;
   name: string;
+  brief?: string;
   description?: string;
   symbol: string;
   particle_type: SubatomicParticleType;
   mass: number;
   charge: number;
   spin: SpinValue;
-  color_charge?: string;
   is_antiparticle: boolean;
   is_stable: boolean;
-  fundamental_particle_id: number;
+  compositions: SubatomicComposition[];
 }
 
 export type SubatomicParticleCreate = Omit<SubatomicParticle, "id">;
