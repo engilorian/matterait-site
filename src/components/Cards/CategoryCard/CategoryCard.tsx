@@ -37,7 +37,7 @@ const CategoryCard: React.FC<CategoryProps> = ({
         animate="visible"
         whileHover="hover"
         className={`group relative flex flex-col items-center gap-4 
-          rounded-lg border-4 border-black bg-white p-16 text-center shadow 
+          rounded-lg border-4 border-black bg-white p-10 md:p-16 text-center shadow 
           transition-transform duration-200 hover:border-blue-500 
           hover:bg-blue-50${className}`}
         onHoverStart={() => controls.start("hover")}
@@ -61,7 +61,7 @@ const CategoryCard: React.FC<CategoryProps> = ({
         </motion.div>
 
         <motion.h2
-          className="text-2xl font-main font-semibold group-hover:text-blue-500"
+          className="text-xl md:text-2xl font-main font-semibold group-hover:text-blue-500"
           initial={{ scale: 1 }}
           animate={controls}
           variants={{
