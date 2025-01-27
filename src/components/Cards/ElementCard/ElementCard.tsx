@@ -19,7 +19,7 @@ interface ElementProps {
 
 const cardVariants = {
   hidden: { opacity: 0, y: 10 },
-  visible: { opacity: 1, y: 0 },
+  visible: { opacity: 1, y: 10 },
 };
 
 const categoryColors: Record<string, string> = {
