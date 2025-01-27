@@ -48,7 +48,7 @@ const Carousel: React.FC<CarouselProps> = ({ children, duration = 15 }) => {
   }, [controls, blockWidth, duration]);
 
   return (
-    <div className="overflow-hidden w-full">
+    <div className="overflow-hidden py-10 w-full">
       <motion.div
         ref={outerRef}
         className="flex flex-nowrap"
