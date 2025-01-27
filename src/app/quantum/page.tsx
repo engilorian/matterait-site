@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-import CategoryCard from "@/components/CategoryCard";
+import CategoryCard from "@/components/Cards/CategoryCard";
 import SearchBar from "@/components/SearchBar";
 
 import { useQuantumPhenomena } from "@/hooks/quantum/usePhenomena";
