@@ -76,12 +76,12 @@ export default function Navbar() {
       {isOpen && (
         <ul className="md:hidden text-gray-600 font-secondary font-bold border-b-4 border-gray-300 space-y-2 text-center px-4 py-3">
           <li>
-            <Link href="/" className="block hover:bg-emerald-700 hover:text-white rounded-full py-2" onClick={() => setIsOpen(false)}>
+            <Link href="/" className="block hover:bg-gray-100 rounded-full py-2" onClick={() => setIsOpen(false)}>
               Home
             </Link>
           </li>
           <li>
-            <Link href="/about" className="block hover:bg-emerald-700 hover:text-white rounded-full py-2" onClick={() => setIsOpen(false)}>
+            <Link href="/about" className="block hover:bg-gray-100 rounded-full py-2" onClick={() => setIsOpen(false)}>
               About
             </Link>
           </li>
