@@ -36,7 +36,6 @@ const particleTypeColors: Record<FundamentalParticleType, string> = {
   [FundamentalParticleType.HIGGS]: "bg-yellow-50 border-yellow-500 text-yellow-500",
 };
 
-
 const FundamentalCard: React.FC<FundamentalProps> = ({
   name,
   brief,
@@ -62,62 +61,60 @@ const FundamentalCard: React.FC<FundamentalProps> = ({
   };
 
   return (
-    <Link href={link}>
+    <div className={`relative ${className}`}>
+    <Link href={link} passHref>
       <motion.div
-        className={`
-          group relative flex flex-col justify-between items-center
-          bg-white rounded-lg border-4 border-slate-400 p-4 text-center 
-          transition-shadow duration-200
-          ${className}
-        `}
+        className="group relative flex flex-col items-center justify-center bg-white border-4 border-black rounded-lg p-3"
         onHoverStart={handleHoverStart}
         onHoverEnd={handleHoverEnd}
       >
         <motion.div
-          className="flex justify-around w-full p-2 mb-6"
+          className="flex justify-around items-center w-full p-2 mb-4"
           variants={topSectionVariants}
           initial="hidden"
           animate={controls}
           transition={{ duration: 0.2 }}
         >
           <div className="flex flex-col items-center">
-            <span className="text-sm text-gray-500 font-secondary">
+            <span className="text-xs text-gray-500 font-secondary">
               Mass <strong>(MeV)</strong>
             </span>
-            <span className="text-black font-secondary font-bold">
+            <span className="text-black font-secondary font-bold text-sm">
               {mass}
             </span>
           </div>
+
           <div className="flex flex-col items-center">
-            <span className="text-sm text-gray-500 font-secondary">
+            <span className="text-xs text-gray-500 font-secondary">
               Charge
             </span>
-            <span className="text-black font-secondary font-bold">
+            <span className="text-black font-secondary font-bold text-sm">
               {charge}
             </span>
           </div>
+
           <div className="flex flex-col items-center">
-            <span className="text-sm text-gray-500 font-secondary">
+            <span className="text-xs text-gray-500 font-secondary">
               Spin
             </span>
-            <span className="text-black font-secondary font-bold">
+            <span className="text-black font-secondary font-bold text-sm">
               {spin}
             </span>
           </div>
         </motion.div>
 
-        <div className="flex flex-col items-center justify-center flex-1 py-2">
+        <div className="flex flex-col items-center justify-center flex-1">
           <div
             className={`rounded-full border-8 flex items-center justify-center 
-            aspect-square w-32 p-6 ${particleTypeClass}`}
+            aspect-square w-24 p-4 ${particleTypeClass}`}
           >
             <motion.h1
-              className="text-5xl font-main font-extrabold"
+              className="text-3xl font-main font-extrabold"
               initial={{ scale: 1 }}
               animate={controls}
               variants={{
                 hidden: { scale: 1 },
-                visible: { scale: 1.1 },
+                visible: { scale: 1 },
               }}
               transition={{ duration: 0.2 }}
             >
@@ -125,13 +122,13 @@ const FundamentalCard: React.FC<FundamentalProps> = ({
             </motion.h1>
           </div>
 
-          <h3 className="text-2xl font-main font-semibold mt-3">
+          <h3 className="text-xl font-main font-semibold mt-2">
             {name}
           </h3>
         </div>
 
         <motion.div
-          className="text-sm text-gray-700 font-secondary mt-4 py-2"
+          className="text-xs text-gray-700 font-secondary mt-2 py-2 px-2"
           variants={descriptionVariants}
           initial="hidden"
           animate={controls}
@@ -146,6 +143,7 @@ const FundamentalCard: React.FC<FundamentalProps> = ({
         </motion.div>
       </motion.div>
     </Link>
+    </ div>
   );
 };
 

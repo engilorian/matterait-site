@@ -24,20 +24,17 @@ const Pill: React.FC<PillProps> = ({
   active = false,
 }) => {
   const baseStyles = `
-    rounded-none
-    border-4
+    rounded-full
     font-secondary
-    font-bold
-    transition-colors 
-    duration-200 
-    hover:opacity-75
+    font-extrabold
+    border-8
   `;
 
   const variantStyles =
     variant === 'primary'
-      ? 'bg-blue-200 border-blue-500 text-blue-500'
+      ? 'bg-cyan-700 hover:bg-cyan-600 border-cyan-800 text-cyan-100'
       : variant === 'secondary'
-      ? 'bg-slate-200 border-slate-500 text-slate-500'
+      ? 'bg-zinc-700 hover:bg-zinc-600 border-zinc-800 text-zinc-100'
       : 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500';
 
   const sizeStyles =
