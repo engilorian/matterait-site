@@ -3,15 +3,18 @@
 export interface Element {
     id: number;
     name: string;
+    brief?: string;
     description?: string;
     symbol: string;
     atomic_number: number;
     atomic_mass: number;
+    category?: string;
     group?: number;
     period?: number;
     density?: number;
     melting_point?: number;
     boiling_point?: number;
+    state_id?: number;
     state?: string;
     electronegativity?: number;
     ionization_energy?: number;
@@ -22,13 +25,12 @@ export interface Element {
     reactivity?: string;
     occurrence?: string;
     radioactivity: boolean;
-    category?: string;
     heat_capacity?: number;
     thermal_conductivity?: number;
     electrical_conductivity?: number;
-  }
+}
+
+export type ElementCreate = Omit<Element, 'id'>;
   
-  export type ElementCreate = Omit<Element, 'id'>;
-  
-  export type ElementUpdate = Partial<Omit<Element, 'id'>>;
+export type ElementUpdate = Partial<Omit<Element, 'id'>>;
   
