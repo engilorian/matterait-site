@@ -58,7 +58,7 @@ const ElementCard: React.FC<ElementProps> = ({
         whileHover="hover"
         className={`
           group relative flex flex-col justify-between items-center
-          rounded-lg border-4 border-black h-96 w-80 p-16 text-center 
+          rounded-lg border-4 border-slate-400 h-96 w-80 p-16 text-center 
           transition-transform duration-200 hover:scale-105
           ${className}
         `}
