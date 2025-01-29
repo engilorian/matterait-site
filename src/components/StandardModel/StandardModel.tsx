@@ -59,7 +59,7 @@ const StandardModel: React.FC<StandardModelProps> = ({ particles }) => {
           <PillButton
             key={type}
             onClick={() => setActiveTab(type)}
-            variant="secondary"
+            variant="primary"
             active={activeTab === type}
             aria-pressed={activeTab === type}
           >
