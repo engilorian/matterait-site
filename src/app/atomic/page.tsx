@@ -7,9 +7,10 @@ import { useElements } from "@/hooks/atomic/useElements";
 import { useFundamentalParticles } from "@/hooks/atomic/useFundamentals";
 import { useSubatomicParticles } from "@/hooks/atomic/useSubatomics";
 
-import CategoryCard from "@/components/Cards/CategoryCard";
 import ElementCard from "@/components/Cards/ElementCard";
+import CategoryCard from "@/components/Cards/CategoryCard";
 import Carousel from "@/components/Carousel/Carousel";
+import StandardModel from "@/components/StandardModel";
 
 
 const Atomic: React.FC = () => {
@@ -18,11 +19,13 @@ const Atomic: React.FC = () => {
     isLoading: elementsLoading,
     error: elementsError,
   } = useElements();
+
   const {
     data: fundamentals,
     isLoading: fundamentalsLoading,
     error: fundamentalsError,
   } = useFundamentalParticles();
+
   const {
     data: subatomics,
     isLoading: subatomicsLoading,
@@ -62,51 +65,17 @@ const Atomic: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-32 bg-blue-900">
-        <div className="w-full max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl md:text-6xl text-white font-secondary font-extrabold py-10">
-            Fundamental Particles
-          </h2>
-          {fundamentalsLoading && (
-            <div className="text-center text-white">Loading...</div>
-          )}
-          {fundamentalsError && (
-            <div className="text-center text-red-500">
-              Error: {fundamentalsError.message}
-            </div>
-          )}
-          {!fundamentalsLoading && !fundamentalsError && (
-            <motion.div
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-              initial="hidden"
-              animate="visible"
-              variants={{
-                hidden: {},
-                visible: {
-                  transition: {
-                    staggerChildren: 0.2,
-                  },
-                },
-              }}
-            >
-              {fundamentals?.map((particle) => (
-                <CategoryCard
-                  key={particle.id}
-                  name={particle.name}
-                  icon="/category/fundamental-particles.svg"
-                  description={
-                    particle.brief || "No description available."
-                  }
-                  link={`/atomic/fundamental/${particle.id}`}
-                  className="bg-white text-gray-900"
-                />
-              ))}
-            </motion.div>
-          )}
-        </div>
-      </section>
+      {!fundamentalsLoading && !fundamentalsError && fundamentals?.length ? (
+        <section className="py-20 bg-gray-100  text-center">
+          <StandardModel particles={fundamentals} />
+        </section>
+      ) : (
+        <section className="py-20 bg-slate-500 text-center">
+          {fundamentalsLoading ? "Loading..." : "No fundamental particles available."}
+        </section>
+      )}
 
-      <section className="py-32 bg-blue-900">
+      <section className="py-32">
         <div className="w-full max-w-7xl mx-auto px-6">
           <h2 className="text-3xl md:text-6xl text-white font-secondary font-extrabold py-10">
             Subatomic Particles
