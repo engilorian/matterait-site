@@ -20,9 +20,9 @@ interface SubatomicProps {
   className?: string;
 }
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 10 },
-  visible: { opacity: 1, y: 0 },
+const overlayVariants = {
+  rest: { y: "100%", opacity: 0, transition: { duration: 0.1, ease: "easeInOut" } },
+  hover: { y: "0%", opacity: 1, transition: { duration: 0.2, ease: "easeInOut" } },
 };
 
 const particleTypeColors: Record<SubatomicParticleType, string> = {
@@ -53,17 +53,18 @@ const SubatomicCard: React.FC<SubatomicProps> = ({
     <div className={`w-full aspect-square ${className}`}>
       <Link href={link} passHref>
         <motion.div
-          variants={cardVariants}
-          initial="hidden"
-          animate="visible"
-          className={`
-            group relative flex flex-col items-center justify-center
+          initial="rest"
+          whileHover="hover"
+          animate="rest"
+          variants={{
+            rest: {},
+            hover: {},
+          }}
+          className={`relative flex flex-col items-center justify-center
             rounded-lg border-4 border-black w-full aspect-square p-3 text-center
-            bg-white transition-transform duration-200
-            overflow-hidden
-          `}
+            bg-white overflow-hidden`}
         >
-          <div className="absolute top-0 right-0 flex flex-row items-center space-x-2 pt-1.5 pr-1.5 md:pt-2 md:pr-2 z-30">
+          <div className="absolute top-0 right-0 flex flex-row items-center space-x-2 pt-1.5 pr-1.5 md:pt-2 md:pr-2 z-20">
             {is_antiparticle && (
               <span className="px-2 py-1 border-4 text-[10px] md:text-xs font-secondary font-bold rounded-tr-lg rounded-bl-lg bg-rose-200 border-rose-500 text-rose-500">
                 Antiparticle
@@ -71,10 +72,11 @@ const SubatomicCard: React.FC<SubatomicProps> = ({
             )}
             <span
               className={`px-2 py-1 border-4 text-[10px] md:text-xs font-secondary font-bold
-                rounded-tr-lg rounded-bl-lg
-                ${is_stable
-                  ? "bg-green-200 border-green-500 text-green-500"
-                  : "bg-amber-200 border-amber-500 text-amber-500"}`}
+                rounded-tr-lg rounded-bl-lg ${
+                  is_stable
+                    ? "bg-green-200 border-green-500 text-green-500"
+                    : "bg-amber-200 border-amber-500 text-amber-500"
+                }`}
             >
               {stableLabel}
             </span>
@@ -93,11 +95,11 @@ const SubatomicCard: React.FC<SubatomicProps> = ({
           </div>
 
           <motion.div
+            variants={overlayVariants}
             className={`absolute inset-0 flex flex-col items-center justify-center p-6 md:p-8
-              bg-black bg-opacity-75 opacity-0 group-hover:opacity-100
-              transition-opacity duration-300 pointer-events-none`}
+              ${particleTypeClass} text-white z-20`}
           >
-            <div className="mb-3 md:mb-4 font-bold text-xs md:text-sm text-white">
+            <div className="mb-3 md:mb-4 font-bold text-xs md:text-sm">
               <div className="mb-1 md:mb-2">
                 <span className="block font-secondary">Mass (MeV/c²)</span>
                 <span className="font-secondary font-bold">{mass}</span>
@@ -111,7 +113,7 @@ const SubatomicCard: React.FC<SubatomicProps> = ({
                 <span className="font-secondary font-bold">{spin}</span>
               </div>
             </div>
-            <p className="text-center text-xs md:text-sm text-white px-2 font-secondary font-extrabold">
+            <p className="text-center text-xs md:text-sm px-2 font-secondary font-extrabold">
               {brief}
             </p>
           </motion.div>
