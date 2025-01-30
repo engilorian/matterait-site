@@ -26,11 +26,25 @@ const Pagination: React.FC<PaginationProps> = ({
   };
 
   const getPageNumbers = () => {
-    const pages = [];
+    const pages: (number | "...")[] = [];
+    const maxVisiblePages = 5;
+    
+    if (totalPages <= maxVisiblePages) {
+      return Array.from({ length: totalPages }, (_, i) => i + 1);
+    }
 
-    for (let i = 1; i <= totalPages; i++) {
+    const leftBound = Math.max(2, currentPage - 1);
+    const rightBound = Math.min(totalPages - 1, currentPage + 1);
+
+    pages.push(1);
+    if (leftBound > 2) pages.push("...");
+
+    for (let i = leftBound; i <= rightBound; i++) {
       pages.push(i);
     }
+
+    if (rightBound < totalPages - 1) pages.push("...");
+    pages.push(totalPages);
 
     return pages;
   };
@@ -50,16 +64,19 @@ const Pagination: React.FC<PaginationProps> = ({
         <FaArrowLeft />
       </button>
 
-      {getPageNumbers().map((number) => (
+      {getPageNumbers().map((number, index) => (
         <button
-          key={number}
-          onClick={() => onPageChange(number)}
+          key={index}
+          onClick={() => typeof number === "number" && onPageChange(number)}
+          disabled={number === "..."}
           className={`py-2 px-3 rounded-lg border-4 ${
             currentPage === number
               ? "bg-zinc-400 hover:bg-zinc-600 border-zinc-500 text-zinc-900"
+              : number === "..."
+              ? "bg-transparent border-transparent text-zinc-500 cursor-default"
               : "bg-zinc-300 hover:bg-zinc-400 border-zinc-500 text-zinc-500"
           }`}
-          aria-label={`Page ${number}`}
+          aria-label={typeof number === "number" ? `Page ${number}` : "Ellipsis"}
         >
           {number}
         </button>
