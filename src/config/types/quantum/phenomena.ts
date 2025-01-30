@@ -4,6 +4,7 @@ export interface QuantumPhenomenon {
     id: number;
     name: string;
     slug: string;
+    brief?: string;
     description?: string;
     examples?: string;
     is_common: boolean;
