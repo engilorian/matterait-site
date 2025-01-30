@@ -3,14 +3,15 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
+
 interface LoadProps {
   variant?: "light" | "dark";
 }
 
 const Load: React.FC<LoadProps> = ({ variant = "light" }) => {
   return (
-    <Container>
-      <Loader variant={variant} />
+    <Container role="status" aria-live="polite">
+      <Loader variant={variant} aria-label="Loading" />
     </Container>
   );
 };
