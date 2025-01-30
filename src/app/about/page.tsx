@@ -43,7 +43,7 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-32 bg-teal-700">
+      <section className="py-32 bg-cyan-500">
         <div className="max-w-5xl mx-auto px-6 text-white">
           {aboutSections.map((section, index) => (
             <motion.div
