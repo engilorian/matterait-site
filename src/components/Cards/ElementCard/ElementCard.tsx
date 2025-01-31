@@ -54,7 +54,7 @@ const ElementCard: React.FC<ElementProps> = ({
         animate="visible"
         className={`
           group relative flex flex-col justify-between items-center
-          rounded-lg border-4 border-black
+          rounded-lg border-4 border-black select-none
           h-96 w-80
           p-8 text-center
           ${className}
