@@ -22,21 +22,21 @@ export default function Button({
   disabled = false,
   type = 'button',
 }: ButtonProps) {
-  const baseStyles = 'font-main font-bold rounded-full';
+  const baseStyles = 'font-secondary font-bold rounded-lg border-8';
 
   const sizeStyles =
     size === 'small'
       ? 'px-3 py-1 text-sm'
       : size === 'large'
-      ? 'px-7 py-2 text-lg'
-      : 'px-5 py-2 text-base';
+      ? 'px-7 py-1 text-lg'
+      : 'px-5 py-1 text-base';
 
   const variantStyles =
     variant === 'secondary'
-      ? 'bg-gray-200 text-gray-700 hover:bg-gray-300 focus:ring-gray-400'
+      ? 'bg-zinc-700 hover:bg-zinc-600 border-zinc-800 text-zinc-100'
       : variant === 'danger'
-      ? 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500'
-      : 'bg-emerald-700 text-white hover:bg-emerald-800 focus:ring-emerald-600';
+      ? 'bg-red-700 hover:bg-red-600 border-red-800 text-red-100'
+      : 'bg-cyan-700 hover:bg-cyan-600 border-cyan-800 text-cyan-100';
 
   const disabledStyles = disabled ? 'opacity-50 cursor-not-allowed' : '';
 

@@ -17,7 +17,7 @@ export default function Footer() {
             <li>
               <Link
                 href="/about"
-                className="hover:text-emerald-700 rounded py-2 px-4"
+                className="hover:text-cyan-700 rounded py-2 px-4"
               >
                 About
               </Link>
@@ -25,7 +25,7 @@ export default function Footer() {
             <li>
               <Link
                 href="/tos"
-                className="hover:text-emerald-700 rounded py-2 px-4"
+                className="hover:text-cyan-700 rounded py-2 px-4"
               >
                 Terms
               </Link>
@@ -33,7 +33,7 @@ export default function Footer() {
             <li>
               <Link
                 href="/contact"
-                className="hover:text-emerald-700 rounded py-2 px-4"
+                className="hover:text-cyan-700 rounded py-2 px-4"
               >
                 Contact   
               </Link>

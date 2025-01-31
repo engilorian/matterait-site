@@ -75,7 +75,7 @@ const ElementCard: React.FC<ElementProps> = ({
       >
         <span
           className={`
-            absolute top-0 right-0 px-4 py-2 border-4 text-xs font-secondary font-bold
+            absolute top-0 right-0 px-4 py-2 border-4 text-sm font-secondary font-bold
             rounded-tr-lg rounded-bl-lg
             ${categoryClass}
           `}
