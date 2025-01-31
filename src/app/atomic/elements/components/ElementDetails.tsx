@@ -69,7 +69,7 @@ const ElementDetails: React.FC<ElementDetailsProps> = ({ element }) => {
             </div>
           </div>
 
-          <div className="py-4 sm:py-5 my-3 sm:my-5 border-4 md:border-8 border-zinc-400 bg-orange-100 rounded-lg">
+          <div className="py-4 sm:py-5 my-3 sm:my-5 border-4 md:border-8 border-orange-400 bg-orange-100 rounded-lg">
             <div className="p-4 sm:p-5">
               <h2 className="text-2xl sm:text-3xl md:text-4xl text-zinc-900 font-main font-bold mb-4 sm:mb-6">Thermal Properties</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-base sm:text-lg md:text-xl text-zinc-700 font-secondary">
@@ -81,7 +81,7 @@ const ElementDetails: React.FC<ElementDetailsProps> = ({ element }) => {
             </div>
           </div>
 
-          <div className="py-4 sm:py-5 my-3 sm:my-5 border-4 md:border-8 border-zinc-400 bg-blue-100 rounded-lg">
+          <div className="py-4 sm:py-5 my-3 sm:my-5 border-4 md:border-8 border-blue-400 bg-blue-100 rounded-lg">
             <div className="p-4 sm:p-5">
               <h2 className="text-2xl sm:text-3xl md:text-4xl text-zinc-900 font-main font-bold mb-4 sm:mb-6">Electrical Properties</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-base sm:text-lg md:text-xl text-zinc-700 font-secondary">
