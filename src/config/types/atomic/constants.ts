@@ -1,3 +1,4 @@
+import { FundamentalParticleType } from "@/config/types/atomic/fundamental";
 
 
 export const elementCategoryColors: Record<string, string> = {
@@ -12,3 +13,11 @@ export const elementCategoryColors: Record<string, string> = {
     "Lanthanide": "bg-indigo-200 border-indigo-500 text-indigo-500",
     "Unknown Properties": "bg-gray-200 border-gray-500 text-gray-500",
 };
+
+
+export const fundamentalParticleTypeColors: Record<FundamentalParticleType, string> = {
+    [FundamentalParticleType.QUARK]: "bg-sky-50 border-sky-500 text-sky-500",
+    [FundamentalParticleType.LEPTON]: "bg-lime-50 border-lime-500 text-lime-500",
+    [FundamentalParticleType.BOSON]: "bg-red-50 border-red-500 text-red-500",
+    [FundamentalParticleType.HIGGS]: "bg-yellow-50 border-yellow-500 text-yellow-500",
+  };
