@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 
 import { motion, useAnimation } from "framer-motion";
+import { elementCategoryColors } from "@/config/types/atomic/constants";
 
 
 interface ElementProps {
@@ -22,18 +23,6 @@ const cardVariants = {
   visible: { opacity: 1, y: 0 },
 };
 
-const categoryColors: Record<string, string> = {
-  "Alkali Metal": "bg-pink-200 border-pink-500 text-pink-500",
-  Metalloid: "bg-green-200 border-green-500 text-green-500",
-  Actinide: "bg-purple-200 border-purple-500 text-purple-500",
-  "Alkaline Earth Metal": "bg-yellow-200 border-yellow-500 text-yellow-500",
-  "Reactive Nonmetal": "bg-blue-200 border-blue-500 text-blue-500",
-  "Transition Metal": "bg-orange-200 border-orange-500 text-orange-500",
-  "Noble Gas": "bg-yellow-200 border-yellow-500 text-yellow-500",
-  "Post Transition Metal": "bg-pink-200 border-pink-500 text-pink-500",
-  Lanthanide: "bg-indigo-200 border-indigo-500 text-indigo-500",
-  "Unknown Properties": "bg-gray-200 border-gray-500 text-gray-500",
-};
 
 const ElementCard: React.FC<ElementProps> = ({
   name,
@@ -47,7 +36,7 @@ const ElementCard: React.FC<ElementProps> = ({
 }) => {
   const controls = useAnimation();
 
-  const categoryClass = categoryColors[category] || "bg-gray-500";
+  const categoryClass = elementCategoryColors[category] || "bg-gray-500";
 
   const handleHoverStart = () => {
     controls.start("hover");
