@@ -36,7 +36,7 @@ export default function Button({
       ? 'bg-zinc-700 hover:bg-zinc-600 border-zinc-800 text-zinc-100'
       : variant === 'danger'
       ? 'bg-red-700 hover:bg-red-600 border-red-800 text-red-100'
-      : 'bg-emerald-700 hover:bg-emerald-600 border-emerald-800 text-emerald-100';
+      : 'bg-cyan-700 hover:bg-cyan-600 border-cyan-800 text-cyan-100';
 
   const disabledStyles = disabled ? 'opacity-50 cursor-not-allowed' : '';
 
