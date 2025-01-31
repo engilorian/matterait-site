@@ -39,7 +39,7 @@ const Home: React.FC = () => {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <strong className="text-emerald-700">Matterait</strong> / Traits of Matter
+            <strong className="text-cyan-700">Matterait</strong> / Traits of Matter
           </motion.h1>
           <p className="text-lg md:text-2xl text-gray-700 font-secondary font-medium max-w-2xl mx-auto">
             Discover the fundamental aspects of the universe—from particles to quantum phenomena, interaction, and characteristics.
@@ -47,13 +47,13 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-6 bg-white">
-        <div className="max-w-lg mx-auto">
+      <section className="py-10 bg-white">
+        <div className="max-w-md mx-auto">
           <SearchBar />
         </div>
       </section>
 
-      <section className="h-full py-32 bg-emerald-800">
+      <section className="h-full py-32 bg-cyan-500">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             className="grid grid-cols-1 gap-8"

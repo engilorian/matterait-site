@@ -46,7 +46,7 @@ const Container = styled.div`
 const Loader = styled.div<{ variant: "light" | "dark" }>`
   width: 48px;
   height: 48px;
-  border: 3px solid ${props => (props.variant === "light" ? "#FFF" : "#333")};
+  border: 3px solid ${props => (props.variant === "light" ? "#BDE0FE" : "#008DD5")};
   border-radius: 50%;
   display: inline-block;
   position: relative;
@@ -59,7 +59,7 @@ const Loader = styled.div<{ variant: "light" | "dark" }>`
     position: absolute;
     left: 0;
     top: 0;
-    background: ${props => (props.variant === "light" ? "#CFE1B9" : "#7b904b")};
+    background: ${props => (props.variant === "light" ? "#008DD5" : "#BDE0FE")};
     width: 16px;
     height: 16px;
     transform: translate(-50%, 50%);

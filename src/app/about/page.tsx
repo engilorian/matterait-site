@@ -35,7 +35,7 @@ const About: React.FC = () => {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            About <strong className="text-emerald-700">Matterait</strong>
+            About <strong className="text-cyan-700">Matterait</strong>
           </motion.h1>
           <p className="text-lg md:text-2xl text-gray-700 font-secondary font-medium max-w-2xl mx-auto">
             Learn more about our journey, mission, and vision to inspire curiosity about matter and the universe.
