@@ -43,7 +43,7 @@ const ElementDetails: React.FC<ElementDetailsProps> = ({ element }) => {
           </div>
         </div>
 
-        <div className="bg-white border-8 border-black flex flex-col p-6 md:p-8 relative">
+        <div className="bg-white border-8 border-black flex flex-col p-8 md:p-14 relative">
           
           <div 
             className={`absolute top-0 right-0 border-8 border-t-0 border-r-0 rounded-bl-lg py-2 px-3 sm:py-1.5 sm:px-3 md:py-2 md:px-4 flex flex-col items-center ${element.radioactivity ? "bg-red-200 border-red-500 text-red-500" : "bg-green-200 border-green-500 text-green-500"}`}
@@ -69,31 +69,31 @@ const ElementDetails: React.FC<ElementDetailsProps> = ({ element }) => {
             </div>
           </div>
 
-          <div className="py-4 sm:py-5 my-3 sm:my-5 border-4 border-orange-400 bg-orange-100 rounded-lg">
+          <div className="py-4 sm:py-5 my-3 sm:my-5 border-4 md:border-8 border-zinc-400 bg-orange-100 rounded-lg">
             <div className="p-4 sm:p-5">
               <h2 className="text-2xl sm:text-3xl md:text-4xl text-zinc-900 font-main font-bold mb-4 sm:mb-6">Thermal Properties</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-base sm:text-lg md:text-xl text-zinc-700 font-secondary">
-                <p>Melting Point: <span className="font-bold text-orange-600">{element.melting_point ? `${element.melting_point} K` : "Unknown"}</span></p>
-                <p>Boiling Point: <span className="font-bold text-orange-600">{element.boiling_point ? `${element.boiling_point} K` : "Unknown"}</span></p>
-                <p>Heat Capacity: <span className="font-bold text-orange-600">{element.heat_capacity ? `${element.heat_capacity} J/(mol·K)` : "Unknown"}</span></p>
-                <p>Thermal Conductivity: <span className="font-bold text-orange-600">{element.thermal_conductivity ? `${element.thermal_conductivity} W/(m·K)` : "Unknown"}</span></p>
+                <p>Melting Point: <span className="font-bold text-zinc-600">{element.melting_point ? `${element.melting_point} K` : "Unknown"}</span></p>
+                <p>Boiling Point: <span className="font-bold text-zinc-600">{element.boiling_point ? `${element.boiling_point} K` : "Unknown"}</span></p>
+                <p>Heat Capacity: <span className="font-bold text-zinc-600">{element.heat_capacity ? `${element.heat_capacity} J/(mol·K)` : "Unknown"}</span></p>
+                <p>Thermal Conductivity: <span className="font-bold text-zinc-600">{element.thermal_conductivity ? `${element.thermal_conductivity} W/(m·K)` : "Unknown"}</span></p>
               </div>
             </div>
           </div>
 
-          <div className="py-4 sm:py-5 my-3 sm:my-5 border-4 border-blue-400 bg-blue-100 rounded-lg">
+          <div className="py-4 sm:py-5 my-3 sm:my-5 border-4 md:border-8 border-zinc-400 bg-blue-100 rounded-lg">
             <div className="p-4 sm:p-5">
               <h2 className="text-2xl sm:text-3xl md:text-4xl text-zinc-900 font-main font-bold mb-4 sm:mb-6">Electrical Properties</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-base sm:text-lg md:text-xl text-zinc-700 font-secondary">
-                <p>Electronegativity: <span className="font-bold text-blue-600">{element.electronegativity || "Unknown"}</span></p>
-                <p>Ionization Energy: <span className="font-bold text-blue-600">{element.ionization_energy ? `${element.ionization_energy} eV` : "Unknown"}</span></p>
-                <p>Atomic Radius: <span className="font-bold text-blue-600">{element.atomic_radius ? `${element.atomic_radius} pm` : "Unknown"}</span></p>
-                <p>Electrical Conductivity: <span className="font-bold text-blue-600">{element.electrical_conductivity ? `${element.electrical_conductivity} S/m` : "Unknown"}</span></p>
+                <p>Electronegativity: <span className="font-bold text-zinc-600">{element.electronegativity || "Unknown"}</span></p>
+                <p>Ionization Energy: <span className="font-bold text-zinc-600">{element.ionization_energy ? `${element.ionization_energy} eV` : "Unknown"}</span></p>
+                <p>Atomic Radius: <span className="font-bold text-zinc-600">{element.atomic_radius ? `${element.atomic_radius} pm` : "Unknown"}</span></p>
+                <p>Electrical Conductivity: <span className="font-bold text-zinc-600">{element.electrical_conductivity ? `${element.electrical_conductivity} S/m` : "Unknown"}</span></p>
               </div>
             </div>
           </div>
 
-          <div className="py-4 sm:py-5 my-3 sm:my-5 border-4 border-zinc-400 bg-zinc-100 rounded-lg">
+          <div className="py-4 sm:py-5 my-3 sm:my-5 border-4 md:border-8 border-zinc-400 bg-zinc-100 rounded-lg">
             <div className="p-4 sm:p-5">
               <h2 className="text-2xl sm:text-3xl md:text-4xl text-zinc-900 font-main font-bold mb-4 sm:mb-6">Other Properties</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-base sm:text-lg md:text-xl text-zinc-700 font-secondary">
