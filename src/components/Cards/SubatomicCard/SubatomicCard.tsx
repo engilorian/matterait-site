@@ -64,14 +64,14 @@ const SubatomicCard: React.FC<SubatomicProps> = ({
             rounded-lg border-4 border-black w-full aspect-square p-3 text-center
             bg-white overflow-hidden`}
           >
-          <div className="absolute top-0 right-0 flex flex-row items-center space-x-2 pt-1.5 pr-1.5 md:pt-2 md:pr-2 z-20">
+          <div className="absolute top-0 right-0 p-3 flex flex-row items-center space-x-2 z-20">
             {is_antiparticle && (
-              <span className="px-2 py-1 border-4 md:text-xs font-secondary font-bold rounded-tr-lg rounded-bl-lg bg-rose-200 border-rose-500 text-rose-500">
+              <span className="px-2 py-1 border-4 text-sm font-secondary font-bold rounded-tr-lg rounded-bl-lg bg-rose-200 border-rose-500 text-rose-500">
                 Antiparticle
               </span>
             )}
             <span
-              className={`px-2 py-1 border-4 md:text-xs font-secondary font-bold
+              className={`px-2 py-1 border-4 text-sm font-secondary font-bold
                 rounded-tr-lg rounded-bl-lg ${
                   is_stable
                     ? "bg-green-200 border-green-500 text-green-500"
