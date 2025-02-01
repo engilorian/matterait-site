@@ -47,6 +47,15 @@ export default function Navbar() {
                 About
               </Link>
             </li>
+            <li>
+              <Link
+                href="/about"
+                className="hover:bg-zinc-100 rounded-full py-2 px-4"
+              >
+                Contribute
+              </Link>
+            </li>
+            
           </ul>
           <Link
             href="https://github.com/engilore/matterait-site"
@@ -108,6 +117,15 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
             >
               About
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/about"
+              className="block hover:bg-zinc-100 rounded-full py-2"
+              onClick={() => setIsOpen(false)}
+            >
+              Contribute
             </Link>
           </li>
         </ul>
