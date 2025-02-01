@@ -3,9 +3,9 @@
 import React from "react";
 import { motion, useAnimation, Variants } from "framer-motion";
 import { FundamentalParticleType } from "@/config/types/atomic/fundamental";
-import { fundamentalParticleTypeColors } from "@/config/types/atomic/constants";
+import { fundamentalParticleTypeColors } from "@/config/types/atomic/fundamentalConstants";
 
-// Remove the 'link' prop since we no longer need a clickable link wrapper.
+
 interface FundamentalProps {
   name: string;
   brief: string;

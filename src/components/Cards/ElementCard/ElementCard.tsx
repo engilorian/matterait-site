@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 
 import { motion, useAnimation } from "framer-motion";
-import { elementCategoryColors } from "@/config/types/atomic/constants";
+import { elementCategoryColors } from "@/config/types/atomic/elementConstants";
 
 
 interface ElementProps {

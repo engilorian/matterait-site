@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Element } from "@/config/types/atomic/element";
-import { elementCategoryColors } from "@/config/types/atomic/constants";
+import { elementCategoryColors } from "@/config/types/atomic/elementConstants";
 
 import AtomicStructure from "@/components/AtomicStructure";
 
