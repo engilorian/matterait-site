@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+import { FaGithub } from "react-icons/fa";
+
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,9 +15,8 @@ export default function Navbar() {
   };
 
   return (
-    <header className="">
+    <header>
       <nav className="container mx-auto px-4 py-3 flex items-center justify-between">
-
         <div className="text-2xl font-main font-bold">
           <Link href="/" onClick={() => setIsOpen(false)}>
             <Image
@@ -28,18 +29,34 @@ export default function Navbar() {
           </Link>
         </div>
 
-        <ul className="text-gray-600 font-secondary font-bold hidden md:flex space-x-6">
-          <li>
-            <Link href="/" className="hover:bg-gray-100 rounded-full py-2 px-4">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link href="/about" className="hover:bg-gray-100 rounded-full py-2 px-4">
-              About
-            </Link>
-          </li>
-        </ul>
+        <div className="hidden md:flex items-center space-x-6">
+          <ul className="text-zinc-600 font-secondary font-bold flex space-x-6">
+            <li>
+              <Link
+                href="/"
+                className="hover:bg-zinc-100 rounded-full py-2 px-4"
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/about"
+                className="hover:bg-zinc-100 rounded-full py-2 px-4"
+              >
+                About
+              </Link>
+            </li>
+          </ul>
+          <Link
+            href="https://github.com/engilore/matterait-site"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-zinc-600 hover:text-zinc-700"
+          >
+            <FaGithub size={32} />
+          </Link>
+        </div>
 
         <button
           onClick={toggleMenu}
@@ -74,14 +91,22 @@ export default function Navbar() {
       </nav>
 
       {isOpen && (
-        <ul className="md:hidden text-gray-600 font-secondary font-bold border-b-4 border-gray-300 space-y-2 text-center px-4 py-3">
+        <ul className="md:hidden text-zinc-600 font-secondary font-bold border-b-4 border-zinc-300 space-y-2 text-center px-4 py-3">
           <li>
-            <Link href="/" className="block hover:bg-gray-100 rounded-full py-2" onClick={() => setIsOpen(false)}>
+            <Link
+              href="/"
+              className="block hover:bg-zinc-100 rounded-full py-2"
+              onClick={() => setIsOpen(false)}
+            >
               Home
             </Link>
           </li>
           <li>
-            <Link href="/about" className="block hover:bg-gray-100 rounded-full py-2" onClick={() => setIsOpen(false)}>
+            <Link
+              href="/about"
+              className="block hover:bg-zinc-100 rounded-full py-2"
+              onClick={() => setIsOpen(false)}
+            >
               About
             </Link>
           </li>
