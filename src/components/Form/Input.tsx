@@ -19,10 +19,10 @@ export default function InputField<T extends FieldValues>({
 }: InputFieldProps<T>) {
   return (
     <div className="mb-4">
-      <label className="block font-semibold mb-1">{field.label}</label>
+      <label className="block font-secondary text-zinc-700 mb-1">{field.label}</label>
       <input
         type={field.type ?? "text"}
-        className="border p-2 w-full"
+        className="border-4 rounded-lg focus:outline-none font-secondary p-2 w-full"
         placeholder={field.placeholder}
         step={field.step}
         {...register(field.name, { required: field.required })}

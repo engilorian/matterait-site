@@ -19,8 +19,8 @@ export default function DropdownField<T extends FieldValues>({
 }: DropdownFieldProps<T>) {
   return (
     <div className="mb-4">
-      <label className="block font-semibold mb-1">{field.label}</label>
-      <select {...register(field.name)} className="border p-2 w-full">
+      <label className="block font-secondary text-zinc-700 mb-1">{field.label}</label>
+      <select {...register(field.name)} className="border-4 rounded-lg focus:outline-none font-secondary p-2 w-full">
         {options.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
