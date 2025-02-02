@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+
 import { Element } from "@/config/types/atomic/element";
 import { elementCategoryColors } from "@/config/types/atomic/elementConstants";
 
@@ -21,6 +22,8 @@ const ElementDetails: React.FC<ElementDetailsProps> = ({ element }) => {
   }
 
   const categoryColor = elementCategoryColors[element.category || "Unknown"];
+
+  const stateValue = element.state ? (typeof element.state === "object" ? element.state.name : element.state) : "Unknown";
 
   return (
     <div className="min-h-screen flex flex-col md:flex-row bg-gray-900 text-white">
@@ -44,9 +47,12 @@ const ElementDetails: React.FC<ElementDetailsProps> = ({ element }) => {
         </div>
 
         <div className="bg-white border-8 border-black flex flex-col p-8 md:p-14 relative">
-          
-          <div 
-            className={`absolute top-0 right-0 border-8 border-t-0 border-r-0 rounded-bl-lg py-2 px-3 sm:py-1.5 sm:px-3 md:py-2 md:px-4 flex flex-col items-center ${element.radioactivity ? "bg-red-200 border-red-500 text-red-500" : "bg-green-200 border-green-500 text-green-500"}`}
+          <div
+            className={`absolute top-0 right-0 border-8 border-t-0 border-r-0 rounded-bl-lg py-2 px-3 sm:py-1.5 sm:px-3 md:py-2 md:px-4 flex flex-col items-center ${
+              element.radioactivity
+                ? "bg-red-200 border-red-500 text-red-500"
+                : "bg-green-200 border-green-500 text-green-500"
+            }`}
           >
             <h4 className="text-sm sm:text-base md:text-xl font-secondary font-bold">
               {element.radioactivity ? "Radioactive" : "Non-Radioactive"}
@@ -63,15 +69,17 @@ const ElementDetails: React.FC<ElementDetailsProps> = ({ element }) => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-base sm:text-lg md:text-xl text-zinc-700 font-secondary">
               <p>Atomic Number: <span className="font-bold text-zinc-600">{element.atomic_number}</span></p>
               <p>Atomic Mass: <span className="font-bold text-zinc-600">{element.atomic_mass}</span></p>
-              <p>State: <span className="font-bold text-zinc-600">{element.state || "Unknown"}</span></p>
+              <p>State of Matter: <span className="font-bold text-zinc-600">{stateValue}</span></p>  
               <p>Density: <span className="font-bold text-zinc-600">{element.density ? `${element.density} g/cm³` : "Unknown"}</span></p>
-              <p>Category: <span className={`font-bold py-1 px-2 bg-inherit ${categoryColor}`}>{element.category || "Unknown"}</span></p>
+              <p>Category: <span className={`font-bold py-1 px-2 bg-white ${categoryColor}`}>{element.category || "Unknown"}</span></p>
             </div>
           </div>
 
           <div className="py-4 sm:py-5 my-3 sm:my-5 border-4 md:border-8 border-orange-400 bg-orange-100 rounded-lg">
             <div className="p-4 sm:p-5">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl text-zinc-900 font-main font-bold mb-4 sm:mb-6">Thermal Properties</h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl text-zinc-900 font-main font-bold mb-4 sm:mb-6">
+                Thermal Properties
+              </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-base sm:text-lg md:text-xl text-zinc-700 font-secondary">
                 <p>Melting Point: <span className="font-bold text-zinc-600">{element.melting_point ? `${element.melting_point} K` : "Unknown"}</span></p>
                 <p>Boiling Point: <span className="font-bold text-zinc-600">{element.boiling_point ? `${element.boiling_point} K` : "Unknown"}</span></p>
@@ -83,7 +91,9 @@ const ElementDetails: React.FC<ElementDetailsProps> = ({ element }) => {
 
           <div className="py-4 sm:py-5 my-3 sm:my-5 border-4 md:border-8 border-blue-400 bg-blue-100 rounded-lg">
             <div className="p-4 sm:p-5">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl text-zinc-900 font-main font-bold mb-4 sm:mb-6">Electrical Properties</h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl text-zinc-900 font-main font-bold mb-4 sm:mb-6">
+                Electrical Properties
+              </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-base sm:text-lg md:text-xl text-zinc-700 font-secondary">
                 <p>Electronegativity: <span className="font-bold text-zinc-600">{element.electronegativity || "Unknown"}</span></p>
                 <p>Ionization Energy: <span className="font-bold text-zinc-600">{element.ionization_energy ? `${element.ionization_energy} eV` : "Unknown"}</span></p>
@@ -106,6 +116,7 @@ const ElementDetails: React.FC<ElementDetailsProps> = ({ element }) => {
           </div>
 
         </div>
+
       </div>
     </div>
   );
