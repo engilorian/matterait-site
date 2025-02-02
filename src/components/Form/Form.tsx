@@ -8,6 +8,7 @@ import {
   DefaultValues,
 } from "react-hook-form";
 
+import { transformFormData } from "@/utils/formUtils"; 
 import { DynamicField } from "./types";
 
 import Button from "@/components/Button";
@@ -37,7 +38,10 @@ export default function Form<T extends FieldValues>({
     formState: { errors },
   } = useForm<T>({ defaultValues });
 
-  const handleFormSubmit: SubmitHandler<T> = (data) => onSubmit(data);
+  const handleFormSubmit: SubmitHandler<T> = (data) => {
+    const transformedData = transformFormData(data);
+    onSubmit(transformedData);
+  };
 
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)}>
