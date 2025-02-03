@@ -72,6 +72,7 @@ const ElementDetails: React.FC<ElementDetailsProps> = ({ element }) => {
               <p>State of Matter: <span className="font-bold text-zinc-600">{stateValue}</span></p>  
               <p>Density: <span className="font-bold text-zinc-600">{element.density ? `${element.density} g/cm³` : "Unknown"}</span></p>
               <p>Category: <span className={`font-bold py-1 px-2 bg-white ${categoryColor}`}>{element.category || "Unknown"}</span></p>
+              <p>Group: <span className="font-bold text-zinc-600">{element.group}</span></p>
             </div>
           </div>
 
