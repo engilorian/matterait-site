@@ -1,7 +1,9 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { motion, useAnimation, Variants } from "framer-motion";
+
 import { FundamentalParticleType } from "@/config/types/atomic/fundamental";
 import { fundamentalCategoryColors } from "@/config/types/atomic/fundamentalConstants";
 
@@ -14,6 +16,7 @@ interface FundamentalProps {
   charge: number;
   spin: string;
   particle_type: FundamentalParticleType;
+  link: string;
   className?: string;
 }
 
@@ -35,6 +38,7 @@ const FundamentalCard: React.FC<FundamentalProps> = ({
   charge,
   spin,
   particle_type,
+  link,
   className = "",
 }) => {
   const controls = useAnimation();
@@ -53,84 +57,87 @@ const FundamentalCard: React.FC<FundamentalProps> = ({
 
   return (
     <div className={`relative ${className}`}>
-      <motion.div
-        className="group relative flex flex-col items-center justify-center bg-white border-4 border-black rounded-lg p-3"
-        onHoverStart={handleHoverStart}
-        onHoverEnd={handleHoverEnd}
-      >
+      <Link href={link} passHref>
         <motion.div
-          className="flex justify-around items-center w-full p-2 mb-4"
-          variants={topSectionVariants}
-          initial="hidden"
-          animate={controls}
-          transition={{ duration: 0.2 }}
+          className="group relative flex flex-col items-center justify-center bg-white border-4 border-black rounded-lg p-3"
+          onHoverStart={handleHoverStart}
+          onHoverEnd={handleHoverEnd}
         >
-          <div className="flex flex-col items-center">
-            <span className="text-xs text-gray-500 font-secondary">
-              Mass <strong>(MeV)</strong>
-            </span>
-            <span className="text-black font-secondary font-bold text-sm">
-              {mass}
-            </span>
-          </div>
-
-          <div className="flex flex-col items-center">
-            <span className="text-xs text-gray-500 font-secondary">
-              Charge
-            </span>
-            <span className="text-black font-secondary font-bold text-sm">
-              {charge}
-            </span>
-          </div>
-
-          <div className="flex flex-col items-center">
-            <span className="text-xs text-gray-500 font-secondary">
-              Spin
-            </span>
-            <span className="text-black font-secondary font-bold text-sm">
-              {spin}
-            </span>
-          </div>
-        </motion.div>
-
-        <div className="flex flex-col items-center justify-center flex-1">
-          <div
-            className={`rounded-full border-8 flex items-center justify-center aspect-square w-24 p-4 ${particleTypeClass}`}
+          <motion.div
+            className="flex justify-around items-center w-full p-2 mb-4"
+            variants={topSectionVariants}
+            initial="hidden"
+            animate={controls}
+            transition={{ duration: 0.2 }}
           >
-            <motion.h1
-              className="text-3xl font-main font-extrabold"
-              initial={{ scale: 1 }}
-              animate={controls}
-              variants={{
-                hidden: { scale: 1 },
-                visible: { scale: 1 },
-              }}
-              transition={{ duration: 0.2 }}
+            <div className="flex flex-col items-center">
+              <span className="text-xs text-gray-500 font-secondary">
+                Mass <strong>(MeV)</strong>
+              </span>
+              <span className="text-black font-secondary font-bold text-sm">
+                {mass}
+              </span>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <span className="text-xs text-gray-500 font-secondary">
+                Charge
+              </span>
+              <span className="text-black font-secondary font-bold text-sm">
+                {charge}
+              </span>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <span className="text-xs text-gray-500 font-secondary">
+                Spin
+              </span>
+              <span className="text-black font-secondary font-bold text-sm">
+                {spin}
+              </span>
+            </div>
+          </motion.div>
+
+          <div className="flex flex-col items-center justify-center flex-1">
+            <div
+              className={`rounded-full border-8 flex items-center justify-center aspect-square w-24 p-4 ${particleTypeClass}`}
             >
-              {symbol}
-            </motion.h1>
+              <motion.h1
+                className="text-3xl font-main font-extrabold"
+                initial={{ scale: 1 }}
+                animate={controls}
+                variants={{
+                  hidden: { scale: 1 },
+                  visible: { scale: 1 },
+                }}
+                transition={{ duration: 0.2 }}
+              >
+                {symbol}
+              </motion.h1>
+            </div>
+
+            <h3 className="text-xl font-main font-semibold mt-2">
+              {name}
+            </h3>
           </div>
 
-          <h3 className="text-xl font-main font-semibold mt-2">
-            {name}
-          </h3>
-        </div>
-
-        <motion.div
-          className="text-xs text-gray-700 font-secondary mt-2 py-2 px-2"
-          variants={descriptionVariants}
-          initial="hidden"
-          animate={controls}
-          transition={{ duration: 0.3 }}
-        >
-          <motion.p
+          <motion.div
+            className="text-xs text-gray-700 font-secondary mt-2 py-2 px-2"
+            variants={descriptionVariants}
+            initial="hidden"
+            animate={controls}
+            transition={{ duration: 0.3 }}
+          >
+            <motion.p
             variants={descriptionVariants}
             transition={{ duration: 0.3 }}
           >
             {brief}
           </motion.p>
+          
+          </motion.div>
         </motion.div>
-      </motion.div>
+      </Link>
     </div>
   );
 };
