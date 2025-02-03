@@ -10,7 +10,7 @@ import { fundamentalFieldsForUpdate } from "@/config/types/atomic/fundamentalCon
 import Form from "@/components/Form";
 
 
-const EditFundamentalParticle: React.FC = () => {
+const EditFundamental: React.FC = () => {
   const { id } = useParams() as { id: string };
   const particleId = Number(id);
   const router = useRouter();
@@ -54,4 +54,4 @@ const EditFundamentalParticle: React.FC = () => {
   );
 };
 
-export default EditFundamentalParticle;
+export default EditFundamental;

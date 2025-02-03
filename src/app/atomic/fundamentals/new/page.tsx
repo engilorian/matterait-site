@@ -10,7 +10,7 @@ import { fundamentalFieldsForCreate } from "@/config/types/atomic/fundamentalCon
 import Form from "@/components/Form";
 
 
-const NewFundamentalParticle: React.FC = () => {
+const NewFundamental: React.FC = () => {
   const router = useRouter();
   const { mutate: createFundamental, isLoading } = useCreateFundamentalParticle();
 
@@ -42,4 +42,4 @@ const NewFundamentalParticle: React.FC = () => {
   );
 };
 
-export default NewFundamentalParticle;
+export default NewFundamental;
