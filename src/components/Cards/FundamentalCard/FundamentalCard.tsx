@@ -3,7 +3,7 @@
 import React from "react";
 import { motion, useAnimation, Variants } from "framer-motion";
 import { FundamentalParticleType } from "@/config/types/atomic/fundamental";
-import { fundamentalParticleTypeColors } from "@/config/types/atomic/fundamentalConstants";
+import { fundamentalCategoryColors } from "@/config/types/atomic/fundamentalConstants";
 
 
 interface FundamentalProps {
@@ -40,7 +40,7 @@ const FundamentalCard: React.FC<FundamentalProps> = ({
   const controls = useAnimation();
 
   const particleTypeClass =
-    fundamentalParticleTypeColors[particle_type] ||
+    fundamentalCategoryColors[particle_type] ||
     "bg-slate-50 border-slate-500 text-slate-500";
 
   const handleHoverStart = () => {
