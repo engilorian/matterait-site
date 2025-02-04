@@ -81,7 +81,7 @@ const Atomic: React.FC = () => {
       <section className="bg-cyan-500 py-16">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-24 text-white font-main font-bold">
-            <h2 className="text-5xl md:text-7xl font-main ">Fundamentals</h2>
+            <h2 className="text-5xl md:text-7xl font-main">Fundamentals</h2>
             <p className="text-lg font-secondary">The most basic particles, responsible for forming all known matter and forces.</p>
           </div>
 
@@ -144,7 +144,7 @@ const Atomic: React.FC = () => {
                   particle_type={particle.particle_type}
                   is_antiparticle={particle.is_antiparticle}
                   is_stable={particle.is_stable}
-                  link={`/atomic/subatomic/${particle.id}`}
+                  link={`/atomic/subatomics/${particle.id}`}
                 />
               ))}
             </motion.div>
