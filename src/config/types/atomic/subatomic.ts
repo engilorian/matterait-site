@@ -17,6 +17,7 @@ export interface SubatomicComposition {
 export interface SubatomicParticle {
   id: number;
   name: string;
+  variant: string;
   brief?: string;
   description?: string;
   symbol: string;
