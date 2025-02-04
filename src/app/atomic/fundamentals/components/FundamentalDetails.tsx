@@ -57,7 +57,7 @@ const FundamentalDetails: React.FC<FundamentalDetailsProps> = ({ particle }) => 
             <p>
               Antiparticle:{" "}
               <span className="font-bold text-zinc-600">
-                {particle.is_antiparticle ? " (Antiparticle)" : "False"}
+                {particle.is_antiparticle ? "True" : "False"}
               </span>
             </p>
           </div>
