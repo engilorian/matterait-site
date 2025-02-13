@@ -1,59 +1,63 @@
 "use client";
 
-import React, { useEffect } from "react";
-import { useRouter, useParams } from "next/navigation";
+import React from "react";
+import { useRouter } from "next/navigation";
+import axios from "axios";
 
-import { SubatomicParticleUpdate } from "@/config/types/atomic/subatomic";
-import { subatomicFieldsForUpdate } from "@/config/types/atomic/subatomicContants";
-import { useSubatomicParticle, useUpdateSubatomicParticle } from "@/hooks/atomic/useSubatomics";
+import { useCreateSubatomicParticle } from "@/hooks/atomic/useSubatomics";
+import { SubatomicParticleCreate, SubatomicParticleType } from "@/config/types/atomic/subatomic";
+import { SpinValue } from "@/config/types/atomic/fundamental";
+import { subatomicFieldsForCreate } from "@/config/types/atomic/subatomicContants";
 
-import Form from "@/components/Form";
+import Form from "@/components/Form/Form";
 
 
-const EditSubatomic: React.FC = () => {
-  const { id } = useParams() as { id: string };
-  const particleId = Number(id);
+const NewSubatomic: React.FC = () => {
   const router = useRouter();
+  const { mutate: createSubatomic, isLoading } = useCreateSubatomicParticle();
 
-  const { data: particle, isLoading } = useSubatomicParticle(particleId);
-  const { mutate: updateSubatomic, isLoading: isUpdating } = useUpdateSubatomicParticle();
+  const defaultValues: SubatomicParticleCreate = {
+    name: "",
+    variant: "",
+    symbol: "",
+    brief: "",
+    description: "",
+    particle_type: SubatomicParticleType.HADRON,
+    mass: 0,
+    charge: 0,
+    spin: SpinValue.ZERO,
+    is_antiparticle: false,
+    is_stable: false,
+    compositions: [],
+  };
 
-  useEffect(() => {
-    if (!isLoading && !particle) {
-      router.push("/404");
-    }
-  }, [particle, isLoading, router]);
-
-  if (!particle) return null;
-
-  const handleSubmit = (data: SubatomicParticleUpdate) => {
-    updateSubatomic(
-      { id: particleId, data },
-      {
-        onSuccess: () => {
-          router.push(`/atomic/subatomics/${particleId}`);
-        },
-        onError: (error) => {
-          console.error("Error updating subatomic particle:", error);
-        },
-      }
-    );
+  const handleSubmit = (data: SubatomicParticleCreate) => {
+    createSubatomic(data, {
+      onSuccess: (particle) => router.push(`/atomic/subatomics/${particle.id}`),
+      onError: (error: unknown) => {
+        if (axios.isAxiosError(error) && error.response) {
+          console.error("API Error:", error.response.data);
+        } else {
+          console.error("Unknown error:", error instanceof Error ? error.message : "No additional details.");
+        }
+      },
+    });
   };
 
   return (
-    <section className="py-20 bg-zinc-300">
-    <div className="container mx-auto p-4">
-    <h1 className="text-5xl md:text-7xl text-zinc-900 font-main mb-16">Edit Subatomic Particle</h1>
-      <Form<SubatomicParticleUpdate>
-        defaultValues={particle}
-        fields={subatomicFieldsForUpdate()}
-        onSubmit={handleSubmit}
-        submitText="Update Particle"
-        isLoading={isUpdating}
-      />
+    <div className="py-20 bg-zinc-100">
+      <div className="container mx-auto p-4">
+        <h1 className="text-5xl md:text-7xl text-zinc-900 font-main mb-16">Submit New Subatomic Particle</h1>
+        <Form<SubatomicParticleCreate>
+          defaultValues={defaultValues}
+          fields={subatomicFieldsForCreate()}
+          onSubmit={handleSubmit}
+          submitText="Create"
+          isLoading={isLoading}
+        />
+      </div>
     </div>
-    </section>
   );
 };
 
-export default EditSubatomic;
+export default NewSubatomic;

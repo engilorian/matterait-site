@@ -6,6 +6,7 @@ import { DynamicField } from "@/components/Form/types";
 
 export const subatomicFieldsForCreate = (): DynamicField<SubatomicParticleCreate>[] => [
   { name: "name", label: "Name", required: true, placeholder: "Enter subatomic particle name" },
+  { name: "variant", label: "Variant", required: true, placeholder: "Variant of subatomic (e.g. 1690)" },
   { name: "symbol", label: "Symbol", required: true, placeholder: "Enter symbol" },
   { name: "brief", label: "Brief Description", placeholder: "Enter a brief description", component: "textarea" },
   { name: "description", label: "Description", placeholder: "Enter full description", component: "textarea" },
