@@ -21,7 +21,7 @@ const SubatomicDetails: React.FC<SubatomicDetailsProps> = ({ particle }) => {
   const typeColor = subatomicCategoryColors[particle.particle_type];
 
   return (
-    <div className="min-h-screen flex justify-center items-center bg-gray-900 text-white px-8 py-16">
+    <div className="min-h-screen flex justify-center items-center bg-zinc-500 text-white px-8 py-16">
       <div className="bg-white border-8 border-black flex flex-col p-8 md:p-14 w-full max-w-4xl relative">
         <div
           className={`absolute top-0 right-0 border-8 border-t-0 border-r-0 rounded-bl-lg py-2 px-3 sm:py-1.5 sm:px-3 md:py-2 md:px-4 flex flex-col items-center ${typeColor}`}
