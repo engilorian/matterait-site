@@ -1,8 +1,9 @@
 import axios from "@/config/axiosInstance";
+
 import atomicRoutes from "@/config/apiRoutes/routes/atomic";
-import {
-  Element,
-  ElementCreate,
+import { 
+  Element, 
+  ElementCreate, 
   ElementUpdate 
 } from "@/config/types/atomic/element";
 
@@ -22,10 +23,7 @@ export const createElement = async (data: ElementCreate): Promise<Element> => {
   return response.data;
 };
 
-export const updateElement = async (
-  id: number,
-  data: ElementUpdate
-): Promise<Element> => {
+export const updateElement = async (id: number, data: ElementUpdate): Promise<Element> => {
   const response = await axios.put(atomicRoutes.element.update(id), data);
   return response.data;
 };
