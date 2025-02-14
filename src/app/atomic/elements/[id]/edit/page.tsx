@@ -59,8 +59,9 @@ const EditElement: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Edit Element</h1>
+    <section className="py-20 bg-zinc-100">
+      <div className="container mx-auto p-4">
+      <h1 className="text-5xl md:text-7xl text-zinc-900 font-main mb-16">Edit Element</h1>
       <Form<ElementUpdate>
         defaultValues={transformedElement}
         fields={elementFieldsForUpdate(stateOptions)} 
@@ -68,7 +69,8 @@ const EditElement: React.FC = () => {
         submitText="Update"
         isLoading={isUpdating || isStatesLoading}
       />
-    </div>
+      </div>
+    </section>
   );
 };
 

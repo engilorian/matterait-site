@@ -45,15 +45,17 @@ const NewElement: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Create New Element</h1>
+    <section className="py-20 bg-zinc-100">
+      <div className="container mx-auto p-4">
+      <h1 className="text-5xl md:text-7xl text-zinc-900 font-main mb-16">New Element</h1>
       <Form<ElementCreate>
         fields={elementFieldsForCreate(stateOptions)}
         onSubmit={handleSubmit}
         submitText="Create Element"
         isLoading={isLoading || statesLoading}
       />
-    </div>
+      </div>
+    </section>
   );
 };
 

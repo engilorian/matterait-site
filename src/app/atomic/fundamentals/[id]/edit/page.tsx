@@ -41,8 +41,9 @@ const EditFundamental: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Edit Fundamental Particle</h1>
+    <div className="py-20 bg-zinc-100">
+      <div className="container mx-auto p-4">
+      <h1 className="text-5xl md:text-7xl text-zinc-900 font-main mb-16">Edit Fundamental Particle</h1>
       <Form<FundamentalParticleUpdate>
         defaultValues={particle}
         fields={fundamentalFieldsForUpdate()}
@@ -50,6 +51,7 @@ const EditFundamental: React.FC = () => {
         submitText="Update Particle"
         isLoading={isUpdating}
       />
+      </div>
     </div>
   );
 };
