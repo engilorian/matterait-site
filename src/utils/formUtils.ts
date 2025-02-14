@@ -13,7 +13,7 @@ export const sanitizeData = <T extends FieldValues>(data: T): T => {
 export const parseNumbers = <T extends FieldValues>(data: T): T => {
   return Object.fromEntries(
     Object.entries(data).map(([key, value]) => {
-      if (key === "spin") {
+      if (key === "variant" || key === "spin") {
         return [key, value];
       }
       if (typeof value === "string" && value.trim() !== "" && !isNaN(Number(value))) {
@@ -23,6 +23,7 @@ export const parseNumbers = <T extends FieldValues>(data: T): T => {
     })
   ) as T;
 };
+
 
 export const transformFormData = <T extends FieldValues>(data: T): T => {
   return parseNumbers(sanitizeData(data));
