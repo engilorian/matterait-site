@@ -136,6 +136,7 @@ const Atomic: React.FC = () => {
                 <SubatomicCard
                   key={particle.id}
                   name={particle.name}
+                  variant={particle.variant}
                   brief={particle.brief || "No description available."}
                   symbol={particle.symbol}
                   mass={particle.mass}
