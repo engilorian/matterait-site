@@ -16,6 +16,8 @@ export interface SubatomicComposition {
 
 export interface SubatomicParticle {
   id: number;
+  full_name: string;
+  full_symbol: string;
   name: string;
   variant: string;
   brief?: string;
@@ -30,6 +32,5 @@ export interface SubatomicParticle {
   compositions: SubatomicComposition[];
 }
 
-export type SubatomicParticleCreate = Omit<SubatomicParticle, "id">;
-
-export type SubatomicParticleUpdate = Partial<Omit<SubatomicParticle, "id">>;
+export type SubatomicParticleCreate = Omit<SubatomicParticle, "id" | "full_name" | "full_symbol">;
+export type SubatomicParticleUpdate = Partial<Omit<SubatomicParticle, "id" | "full_name" | "full_symbol">>;

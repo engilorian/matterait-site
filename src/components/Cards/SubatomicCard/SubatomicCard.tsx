@@ -8,6 +8,7 @@ import { SpinValue } from "@/config/types/atomic/fundamental";
 
 interface SubatomicProps {
   name: string;
+  variant?: string;
   brief: string;
   symbol: string;
   mass: number;
@@ -33,6 +34,7 @@ const particleTypeColors: Record<SubatomicParticleType, string> = {
 
 const SubatomicCard: React.FC<SubatomicProps> = ({
   name,
+  variant,
   brief,
   symbol,
   mass,
@@ -48,6 +50,7 @@ const SubatomicCard: React.FC<SubatomicProps> = ({
     particleTypeColors[particle_type] || "bg-slate-500 border-slate-500 text-slate-500";
 
   const stableLabel = is_stable ? "Stable" : "Unstable";
+  const displayName = variant ? `${name} (${variant})` : `${name}`;
 
   return (
     <div className={`w-full aspect-square ${className}`}>
@@ -63,7 +66,7 @@ const SubatomicCard: React.FC<SubatomicProps> = ({
           className={`relative flex flex-col items-center justify-center
             rounded-lg border-4 border-black w-full aspect-square p-3 text-center
             bg-white overflow-hidden`}
-          >
+        >
           <div className="absolute top-0 right-0 p-3 flex flex-row items-center space-x-2 z-20">
             {is_antiparticle && (
               <span className="px-2 py-1 border-4 text-sm font-secondary font-bold rounded-tr-lg rounded-bl-lg bg-rose-200 border-rose-500 text-rose-500">
@@ -90,7 +93,7 @@ const SubatomicCard: React.FC<SubatomicProps> = ({
               <h1 className="text-3xl md:text-4xl font-main font-extrabold">{symbol}</h1>
             </div>
             <h3 className="text-xl md:text-2xl font-main font-semibold mt-2 md:mt-3">
-              {name}
+              {displayName}
             </h3>
           </div>
 
