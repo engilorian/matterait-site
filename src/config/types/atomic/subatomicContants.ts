@@ -10,7 +10,6 @@ export const subatomicFieldsForCreate = (): DynamicField<SubatomicParticleCreate
   { name: "symbol", label: "Symbol", required: true, placeholder: "Enter symbol" },
   { name: "brief", label: "Brief Description", placeholder: "Enter a brief description", component: "textarea" },
   { name: "description", label: "Description", placeholder: "Enter full description", component: "textarea" },
-
   {
     name: "particle_type",
     label: "Particle Type",
@@ -23,10 +22,8 @@ export const subatomicFieldsForCreate = (): DynamicField<SubatomicParticleCreate
       { value: SubatomicParticleType.BARYON, label: "Baryon" },
     ],
   },
-
   { name: "mass", label: "Mass (MeV/c²)", type: "number", required: true, placeholder: "Enter mass", step: "any" },
   { name: "charge", label: "Charge (e)", type: "number", required: true, placeholder: "Enter charge", step: "any" },
-
   {
     name: "spin",
     label: "Spin",
@@ -40,14 +37,12 @@ export const subatomicFieldsForCreate = (): DynamicField<SubatomicParticleCreate
       { value: SpinValue.THREE_HALVES, label: "3/2" },
     ],
   },
-
   { name: "is_antiparticle", label: "Antiparticle?", type: "checkbox" },
   { name: "is_stable", label: "Stable?", type: "checkbox" },
 ];
 
 export const subatomicFieldsForUpdate = (): DynamicField<SubatomicParticleUpdate>[] =>
   subatomicFieldsForCreate() as DynamicField<SubatomicParticleUpdate>[];
-
 
 export const subatomicCategoryColors: Record<SubatomicParticleType, string> = {
   [SubatomicParticleType.HADRON]: "bg-red-200 border-red-500 text-red-500",
