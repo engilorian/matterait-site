@@ -33,7 +33,7 @@ const SubatomicDetails: React.FC<SubatomicDetailsProps> = ({ particle }) => {
 
         <div className="py-5">
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-main font-extrabold text-zinc-900 mb-4 sm:mb-10">
-            {particle.symbol} / {particle.name}
+            {particle.full_name}
           </h1>
           <p className="text-base sm:text-lg md:text-2xl font-secondary font-semibold text-zinc-700 mb-6 sm:mb-10">
             {particle.description}
